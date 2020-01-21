@@ -1,33 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { CheckBox } from './ui/CheckBox';
-import { Button, SmallButton, BigButton } from './ui/Button';
-import { Select } from './ui/Select';
+import { Header } from './components/Header';
+import { Catalog } from './components/Catalog';
+import { Cart } from './components/Cart';
 
-const ListItem = styled.div`
-  margin: 50px 0 0 300px;
+const AppWrapper = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  max-width: 1200px;
 `;
 
-function App() {
-
-  const [currentValueIndex, setCurrent] = useState(1);
-
-  const selectProps = {
-    values: [1, 2, 3],
-    currentValueIndex,
-    setCurrent
-  }
-
+const Router = () => {
   return (
-    <div>
-      {/* <ListItem><CheckBox checked={false}/></ListItem>
-      <ListItem><CheckBox checked={true}/></ListItem>
-      <ListItem><Select {...selectProps} /></ListItem>
-      <ListItem><SmallButton /></ListItem>
-      <ListItem><Button /></ListItem>
-      <ListItem><BigButton /></ListItem> */}
-    </div>
+    <Switch>
+      <Route exact path='/' component={Catalog}/>
+      <Route path='/cart' component={Cart}/>
+    </Switch>
+  );
+}
+
+function App() {
+  return (
+    <AppWrapper>
+      <Header />
+      <Router />
+    </AppWrapper>
   );
 }
 

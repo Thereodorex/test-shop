@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const border = '#d6dbe0';
 
 const Menu = styled.div`
+  position: absolute;
   margin: 5px 0 0 0;
   display: ${props => props.active ? 'flex' : 'none'};
   flex-flow: column nowrap;

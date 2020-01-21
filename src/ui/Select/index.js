@@ -11,6 +11,7 @@ const Wrapper = styled.div`
 `;
 
 const StyledSelect = styled.div`
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
