@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 
 import { parsePrice } from '../../../utils';
 
-// import { Select } from '../../../ui/Select';
 import { SmallButton } from '../../../ui/Button/index';
 
 import { setCountAction, deleteAction } from '../../../features/cart/ducks';
@@ -29,10 +28,6 @@ const ItemStyled = styled.div`
   }
 `;
 
-// const SelectWrapper = styled.div`
-//   margin: 30px 0;
-// `;
-
 const CounterWrapper = styled.div`
   margin: 50px 0;
   display: flex;
@@ -55,26 +50,11 @@ const Price = styled.div`
   width: 100px;
 `;
 
-// const getValues = () => {
-//   const arr = [];
-//   for (let i = 0; i < 10; i++)
-//     arr.push(i);
-//   return arr;
-// }
-
 export const Item = (props) => {
-
-  console.log(props);
 
   const dispatch = useDispatch();
 
   const {image, price, name, count, id} = props;
-
-  // const values = getValues();
-
-  // const setCurrent = (count) => {
-  //   dispatch(setCountAction({id, count}));
-  // }
 
   const handleDelete = e => {
     e.preventDefault();

@@ -31,7 +31,7 @@ export const Cart = () => {
     button = null;
   } else {
     listItems = phones.map(phone => 
-      <Item key={phone.phone.id} {...phone.phone} count={phone.count}/>
+      <Item key={phone.id} {...phone} />
     );
     button = <BigButton onClick={handleClick}>Оформить заказ</BigButton>;
   }

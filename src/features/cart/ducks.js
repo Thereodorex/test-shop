@@ -11,24 +11,19 @@ export const setCountAction = createAction(SET_COUNT);
 export const cartReducer = createReducer(
   {
     [addAction]: (state, phone) => {
-      // console.log(state);
-      if (state.find(current => current.phone.id === phone.id))
+      if (state.find(current => current.id === phone.id))
         return state;
-      return [...state, {phone, count: 1}]
+      return [...state, {...phone, count: 1}]
     },
-    [deleteAction]: (state, id) => state.filter(phone => phone.phone.id !== id),
+    [deleteAction]: (state, id) => state.filter(phone => phone.id !== id),
     [setCountAction]: (state, {id, count}) => {
       if (count > 9)
         return state;
-      if (count === 0) { 
-        const res = state.filter(phone => phone.phone.id !== id);
-        // console.log(res);
-        return res;
-      }
+      if (count === 0)
+        return state.filter(phone => phone.id !== id);
       return state.map(phone => {
-        if (phone.phone.id === id) {
-          // console.log(count);
-          return {count, phone: phone.phone};
+        if (phone.id === id) {
+          return {...phone, count};
         }
         return phone;
       })

@@ -1,7 +1,5 @@
 import { createSelector } from 'reselect';
 
-// export const phonesSelector = state => state.catalog.phones;
-
 export const categoriesSelector = state => state.catalog.categories;
 
 export const phonesSelector = createSelector(
@@ -11,12 +9,12 @@ export const phonesSelector = createSelector(
     state => state.filter
   ],
   (phones, cart, filter) => {
+    const result = [...phones];
     cart.forEach(phone => {
       if (phone.count > 0) {
-        phones.find(ph => ph.id === phone.phone.id).count = phone.count;
+        result.find(ph => ph.id === phone.id).count = phone.count;
       }
     })
-    // console.log(phones);
     if (filter === 'all')
       return phones;
     return phones.filter(phone => phone.categoryId === filter);

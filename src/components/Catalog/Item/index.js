@@ -48,8 +48,6 @@ export const Item = (props) => {
 
   const {image, price, name, count, id} = props;
 
-  // console.log(count);
-
   const dispatch = useDispatch();
 
   const handleClick = e => {

@@ -32,8 +32,6 @@ export const Catalog = (props) => {
   const phones = useSelector(phonesSelector);
   const categories = useSelector(categoriesSelector);
 
-  // console.log(categories);
-
   let data = null;
 
   if (phones.length) {
@@ -44,7 +42,6 @@ export const Catalog = (props) => {
 
   const handleCategoryClick = id => e => {
     e.preventDefault();
-    console.log(id);
     dispatch(setFilterAction(id));
   }
 
